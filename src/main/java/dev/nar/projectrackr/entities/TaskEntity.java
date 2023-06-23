@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="tâche")
@@ -34,8 +35,26 @@ public class TaskEntity {
 
     private String etat;
 
+    private String effort;
+
+    private String num_ligne_code;
+
     @ManyToOne
     private ProjetEntity projet;
+
+    @ManyToOne
+    private FonctionnaireEntity respo_tâche;
+
+    @ManyToOne
+    @JoinColumn(name = "tâche_parente",nullable = true)
+    private TaskEntity father_task;
+
+    @OneToMany(mappedBy = "task",cascade = CascadeType.ALL)
+    private List<CostEntity> costs;
+
+
+
+
 
 
 

@@ -34,5 +34,12 @@ public class ProjetEntity implements Serializable {
     @OneToMany(mappedBy ="projet",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<TaskEntity> tasks;
 
+    @ManyToOne
+    private FonctionnaireEntity respo_projet;
+
+    @OneToMany(mappedBy = "projet",cascade = CascadeType.ALL)
+    private List<MilestonEntity> milestones;
+
+
 
 }

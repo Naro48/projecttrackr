@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Table(name="fonctionnaire")
 @Data
@@ -30,5 +32,11 @@ public class FonctionnaireEntity {
 
     @Column(length = 14)
     private String mot_de_passe;
+
+    @OneToMany(mappedBy = "respo_projet",cascade = CascadeType.ALL)
+    private List<ProjetEntity> projects;
+
+    @OneToMany(mappedBy = "respo_tâche",cascade = CascadeType.ALL)
+    private List<TaskEntity> tasks;
 
 }
