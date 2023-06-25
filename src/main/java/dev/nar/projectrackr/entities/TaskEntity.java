@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
 @Table(name="tâche")
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaskEntity {
+public class TaskEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

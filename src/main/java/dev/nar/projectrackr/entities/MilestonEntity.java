@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
@@ -12,7 +13,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MilestonEntity {
+public class MilestonEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

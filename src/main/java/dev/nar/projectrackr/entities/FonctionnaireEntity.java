@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name="fonctionnaire")
 @Data
 @AllArgsConstructor
-public class FonctionnaireEntity {
+public class FonctionnaireEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
