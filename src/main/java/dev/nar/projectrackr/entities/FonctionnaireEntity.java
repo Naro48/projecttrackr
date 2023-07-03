@@ -40,4 +40,5 @@ public class FonctionnaireEntity implements Serializable {
     @OneToMany(mappedBy = "respo_tâche",cascade = CascadeType.ALL)
     private List<TaskEntity> tasks;
 
+
 }

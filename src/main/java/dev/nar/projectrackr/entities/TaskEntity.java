@@ -2,6 +2,7 @@ package dev.nar.projectrackr.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.util.List;
 @Table(name="tâche")
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class TaskEntity implements Serializable {
 
     @Id
@@ -19,7 +21,7 @@ public class TaskEntity implements Serializable {
     private int id;
 
     @Column(nullable = false)
-    private String intitulé;
+    private String title;
 
     @Column(nullable = false)
     private Date date_debut;

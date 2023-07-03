@@ -3,6 +3,7 @@ package dev.nar.projectrackr.entities;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,6 +13,7 @@ import java.util.List;
 @Table(name ="projet")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class ProjetEntity implements Serializable {
 
     @Id()
@@ -20,7 +22,7 @@ public class ProjetEntity implements Serializable {
 
 
     @Column(nullable = false)
-    private String intitulé;
+    private String title;
 
     @Column(nullable = false)
     private Date date_debut;
