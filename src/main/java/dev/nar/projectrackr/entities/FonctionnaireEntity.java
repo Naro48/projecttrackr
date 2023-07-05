@@ -1,5 +1,7 @@
 package dev.nar.projectrackr.entities;
 
+import dev.nar.projectrackr.FonctionnaireRole;
+import dev.nar.projectrackr.ProfilFctn;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,8 +30,8 @@ public class FonctionnaireEntity implements Serializable {
     @Column(nullable = false, name = "email",unique = true)
     private String email;
 
-    @Column(nullable = false)
-    private String profil;
+    @Enumerated(EnumType.STRING)
+    private ProfilFctn profil;
 
     @Column(length = 14)
     private String mot_de_passe;

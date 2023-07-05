@@ -9,7 +9,6 @@ import java.util.List;
 public interface ProjetRepository extends JpaRepository<ProjetEntity,Integer> {
     void deleteProjectById(Integer id);
 
-    public List<ProjetEntity> findByTitleContainingIgnoredCase(String title);
-
+    public List<ProjetEntity> findByTitleIgnoreCase(String title);
 
 }

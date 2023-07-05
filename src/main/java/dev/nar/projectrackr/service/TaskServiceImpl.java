@@ -31,6 +31,19 @@ public class TaskServiceImpl implements TaskService{
         return taskRepository.save(task);
     }
 
+    @Override
+    public TaskEntity createSubTask(TaskEntity father_task, ProjetEntity projet, String title, Date date_debut, Date date_fin_estimee, Date dead_line) {
+        TaskEntity task = new TaskEntity();
+        task.setProjet(projet);
+        task.setTitle(title);
+        task.setDate_debut(date_debut);
+        task.setDate_fin_estime(date_fin_estimee);
+        task.setDead_line(dead_line);
+        task.setFather_task(father_task);
+
+        return taskRepository.save(task);
+    }
+
 
     @Override
     public TaskEntity getTaskById(Integer id) {
@@ -39,12 +52,12 @@ public class TaskServiceImpl implements TaskService{
 
     @Override
     public List<TaskEntity> searchTaskByName(String keyword) {
-        return taskRepository.findByTitleContainingIgnoredCase(keyword);
+        return taskRepository.findByTitleIgnoreCase(keyword);
     }
 
     @Override
-    public List<TaskEntity> findAllTasksByProjectId(int projectId) {
-        return taskRepository.getTasksByProjectId(projectId);
+    public List<TaskEntity> findAllTasksByProjet(ProjetEntity projet) {
+        return taskRepository.getTasksByProjet(projet);
     }
 
     @Override

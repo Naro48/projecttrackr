@@ -11,11 +11,14 @@ public interface TaskService {
 
     public TaskEntity createTask(ProjetEntity projet, String title, Date date_debut, Date date_fin_estimee, Date dead_line);
 
+    public TaskEntity createSubTask(TaskEntity father_task,ProjetEntity projet, String title, Date date_debut, Date date_fin_estimee, Date dead_line);
+
+
     public TaskEntity getTaskById(Integer id);
 
     public List<TaskEntity> searchTaskByName(String keyword);
 
-    public List<TaskEntity> findAllTasksByProjectId(int ProjectId);
+    public List<TaskEntity> findAllTasksByProjet(ProjetEntity projet);
 
     public List<TaskEntity> findAllTasks();
 

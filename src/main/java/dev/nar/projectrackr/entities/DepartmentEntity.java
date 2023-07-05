@@ -1,5 +1,6 @@
 package dev.nar.projectrackr.entities;
 
+import dev.nar.projectrackr.FonctionnaireRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

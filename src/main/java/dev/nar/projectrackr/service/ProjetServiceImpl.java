@@ -66,7 +66,7 @@ public class ProjetServiceImpl implements ProjetService {
 
     @Override
     public List<ProjetEntity> searchProjectByTitle(String title) {
-        return projetRepository.findByTitleContainingIgnoredCase(title);
+        return projetRepository.findByTitleIgnoreCase(title);
     }
 
 
