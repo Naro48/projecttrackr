@@ -4,4 +4,6 @@ import dev.nar.projectrackr.entities.FonctionnaireEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface FonctionnaireRepository extends JpaRepository<FonctionnaireEntity,Integer> {
+
+
 }
