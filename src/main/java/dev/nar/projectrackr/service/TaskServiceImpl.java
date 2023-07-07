@@ -4,10 +4,11 @@ import dev.nar.projectrackr.entities.ProjetEntity;
 import dev.nar.projectrackr.entities.TaskEntity;
 import dev.nar.projectrackr.exception.TaskNotFoundException;
 import dev.nar.projectrackr.repositories.TaskRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
-
+@Service
 public class TaskServiceImpl implements TaskService{
 
 
