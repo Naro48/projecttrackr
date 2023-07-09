@@ -4,7 +4,9 @@ import dev.nar.projectrackr.entities.MilestonEntity;
 import dev.nar.projectrackr.entities.ProjetEntity;
 import dev.nar.projectrackr.exception.MilestoneNotFoundException;
 import dev.nar.projectrackr.repositories.MilestonRepository;
+import org.springframework.data.auditing.CurrentDateTimeProvider;
 
+import java.util.Date;
 import java.util.List;
 
 public class MilestonServiceImpl implements MilestonService{
@@ -16,10 +18,13 @@ public class MilestonServiceImpl implements MilestonService{
     }
 
     @Override
-    public MilestonEntity createMilestone(ProjetEntity projet) {
+    public MilestonEntity createMilestone(ProjetEntity projet,String type,String compteRendu) {
         MilestonEntity mileston = new MilestonEntity();
 
         mileston.setProjet(projet);
+        mileston.setDate(new Date());
+        mileston.setType(type);
+        mileston.setCompte_rendu(compteRendu);
 
         return milestonRepository.save(mileston);
 
@@ -51,7 +56,13 @@ public class MilestonServiceImpl implements MilestonService{
     }
 
     @Override
-    public MilestonEntity updateMilestone(MilestonEntity milestone) {
-        return milestonRepository.save(milestone);
+    public MilestonEntity updateMilestone(MilestonEntity milestone,
+                                          String updatedType,
+                                          String updatedCompteRendu) {
+        milestone.setCompte_rendu(updatedCompteRendu);
+        milestone.setType(updatedType);
+
+
+        return milestonRepository.saveAndFlush(milestone);
     }
 }

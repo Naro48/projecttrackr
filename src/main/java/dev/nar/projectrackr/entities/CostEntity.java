@@ -1,11 +1,17 @@
 package dev.nar.projectrackr.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import java.io.Serializable;
 
 @Entity
 @Table(name="coût")
+@AllArgsConstructor
+@RequiredArgsConstructor
+@NoArgsConstructor
 public class CostEntity implements Serializable {
 
     @EmbeddedId

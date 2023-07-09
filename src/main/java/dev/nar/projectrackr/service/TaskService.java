@@ -11,7 +11,7 @@ public interface TaskService {
 
     public TaskEntity createTask(ProjetEntity projet, String title, Date date_debut, Date date_fin_estimee, Date dead_line);
 
-    public TaskEntity createSubTask(TaskEntity father_task,ProjetEntity projet, String title, Date date_debut, Date date_fin_estimee, Date dead_line);
+    public TaskEntity createSubTask(TaskEntity father_task, String title, Date date_debut, Date date_fin_estimee, Date dead_line);
 
 
     public TaskEntity getTaskById(Integer id);

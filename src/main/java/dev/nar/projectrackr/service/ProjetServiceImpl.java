@@ -58,6 +58,7 @@ public class ProjetServiceImpl implements ProjetService {
 
     public void deleteAllProjects(){
         projetRepository.deleteAll();
+
     }
 
     public ProjetEntity updateProject(ProjetEntity projet){

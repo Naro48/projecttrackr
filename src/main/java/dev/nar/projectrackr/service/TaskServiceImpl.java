@@ -1,5 +1,6 @@
 package dev.nar.projectrackr.service;
 
+import dev.nar.projectrackr.entities.CostEntity;
 import dev.nar.projectrackr.entities.ProjetEntity;
 import dev.nar.projectrackr.entities.TaskEntity;
 import dev.nar.projectrackr.exception.TaskNotFoundException;
@@ -33,9 +34,9 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    public TaskEntity createSubTask(TaskEntity father_task, ProjetEntity projet, String title, Date date_debut, Date date_fin_estimee, Date dead_line) {
+    public TaskEntity createSubTask(TaskEntity father_task,String title, Date date_debut, Date date_fin_estimee, Date dead_line) {
         TaskEntity task = new TaskEntity();
-        task.setProjet(projet);
+        task.setProjet(father_task.getProjet());
         task.setTitle(title);
         task.setDate_debut(date_debut);
         task.setDate_fin_estime(date_fin_estimee);
@@ -76,4 +77,12 @@ public class TaskServiceImpl implements TaskService{
         return taskRepository.save(task);
     }
 
+
+    public void addCosts(TaskEntity task,List<CostEntity> costs){
+
+        task.setCosts(costs);
+
+        taskRepository.save(task);
+
+    }
 }

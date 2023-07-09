@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface MilestonService {
 
-    public MilestonEntity createMilestone(ProjetEntity projet);
+    public MilestonEntity createMilestone(ProjetEntity projet,String type,String compteRendu);
 
     public MilestonEntity findMilestoneById(Integer id);
 
@@ -20,6 +20,8 @@ public interface MilestonService {
 
     public void deleteMilestoneById(int id);
 
-    public MilestonEntity updateMilestone(MilestonEntity milestone);
+    public MilestonEntity updateMilestone(MilestonEntity milestone,
+                                          String updatedType,
+                                          String updatedCompteRendu);
 
 }
