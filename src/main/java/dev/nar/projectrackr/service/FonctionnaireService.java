@@ -6,5 +6,6 @@ import dev.nar.projectrackr.entities.FonctionnaireEntity;
 
 public interface FonctionnaireService {
 
-    public FonctionnaireEntity createFonctionnaire(String nom, String prenom, String email, ProfilFctn profil, FonctionnaireRole role);
+    public FonctionnaireEntity findByEmail(String email);
+
 }

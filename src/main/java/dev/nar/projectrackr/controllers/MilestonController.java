@@ -68,7 +68,6 @@ public class MilestonController {
 
     @Data
     @RequiredArgsConstructor
-    @NoArgsConstructor
     @AllArgsConstructor
     public static class MilestonRequest {
 

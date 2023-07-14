@@ -50,7 +50,7 @@ public class FonctionnaireEntity implements UserDetails {
     @Enumerated(EnumType.STRING)
     private FonctionnaireRole role;
 
-    @Column(length = 14,name = "mot_de_passe")
+    @Column(name = "mot_de_passe")
     private String password;
 
     @OneToMany(mappedBy = "respo_projet",cascade = CascadeType.ALL)

@@ -26,7 +26,7 @@ public class TaskController {
         this.projetService = projetService;
     }
 
-    @PostMapping
+    @PostMapping("/create_task")
     public TaskEntity createTask(@RequestBody TaskRequest taskRequest) {
         ProjetEntity projet = projetService.getProjectById(taskRequest.getProjetID());// Récupérer le projet associé à partir de l'identifiant fourni
         return taskService.createTask(projet, taskRequest.getTitle(), taskRequest.getDateDebut(), taskRequest.getDateFinEstimee(), taskRequest.getDeadLine());
@@ -65,7 +65,7 @@ public class TaskController {
     }
 
     @PutMapping("/{taskId}")
-    public TaskEntity updateTask(@PathVariable Integer taskId, @RequestBody TaskEntity updatedTask) {
+    public TaskEntity updateTask(@PathVariable Integer taskId, @RequestBody TaskRequest updatedTask) {
         TaskEntity task = taskService.getTaskById(taskId);
         // Mettre à jour les attributs de la tâche avec ceux fournis dans updatedTask
         return taskService.updateTask(task);
@@ -82,7 +82,6 @@ public class TaskController {
     @Data
     @RequiredArgsConstructor
     @AllArgsConstructor
-    @NoArgsConstructor
     private static class TaskRequest {
         private String title;
         private Date dateDebut;

@@ -5,6 +5,7 @@ import dev.nar.projectrackr.entities.ProjetEntity;
 import dev.nar.projectrackr.entities.TaskEntity;
 import dev.nar.projectrackr.exception.TaskNotFoundException;
 import dev.nar.projectrackr.repositories.TaskRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -15,6 +16,7 @@ public class TaskServiceImpl implements TaskService{
 
     private final TaskRepository taskRepository;
 
+    @Autowired
     public TaskServiceImpl(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }

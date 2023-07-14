@@ -18,24 +18,7 @@ public class CostFactorsController {
         this.costFactorsService = costFactorsService;
     }
 
-    @PostMapping
-    public CostFactorsEntity createCostFactors(@RequestParam String title, @RequestParam float poids,
-                                               @RequestBody List<CostEntity> costs) {
-        return costFactorsService.createCostFactors(title, poids, costs);
-    }
 
-    @PutMapping("/{id}")
-    public CostFactorsEntity updateCostFactors(@PathVariable int id, @RequestParam String newTitle,
-                                               @RequestParam float newPoids,
-                                               @RequestBody List<CostEntity> newCosts) {
-        Optional<CostFactorsEntity> optionalCostFactors = costFactorsService.findById(id);
-        if (optionalCostFactors.isPresent()) {
-            CostFactorsEntity costFactorsEntity = optionalCostFactors.get();
-            return costFactorsService.updateCostFactors(costFactorsEntity, newTitle, newPoids, newCosts);
-        } else {
-            throw new RuntimeException("Le facteur de coût est introuvable");
-        }
-    }
 
     @GetMapping("/{id}")
     public CostFactorsEntity getCostFactorsById(@PathVariable int id) {
@@ -43,10 +26,7 @@ public class CostFactorsController {
                 .orElseThrow(() -> new RuntimeException("Le facteur de coût est introuvable"));
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteCostFactorsById(@PathVariable int id) {
-        costFactorsService.deleteById(id);
-    }
+
 
     @GetMapping("/title/{title}")
     public CostFactorsEntity getCostFactorsByTitle(@PathVariable String title) {
@@ -58,11 +38,5 @@ public class CostFactorsController {
         return costFactorsService.searchByTitle(title);
     }
 
-    @DeleteMapping
-    public void deleteAllCostFactors() {
-        costFactorsService.deleteAll();
-    }
-
-    // Autres méthodes du contrôleur...
 
 }

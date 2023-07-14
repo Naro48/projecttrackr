@@ -2,16 +2,17 @@ package dev.nar.projectrackr.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name="coût")
 @AllArgsConstructor
 @RequiredArgsConstructor
-@NoArgsConstructor
+@Data
 public class CostEntity implements Serializable {
 
     @EmbeddedId
@@ -26,6 +27,13 @@ public class CostEntity implements Serializable {
     @MapsId("FactorId")
     @JoinColumn(name = "id_facteur")
     private CostFactorsEntity CostFactor;
+
+    @Column(name = "ratinqs")
+    private List<String> rating;
+
+    private Double poid;
+
+
 
 
 

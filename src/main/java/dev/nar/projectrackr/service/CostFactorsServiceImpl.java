@@ -3,46 +3,20 @@ package dev.nar.projectrackr.service;
 import dev.nar.projectrackr.entities.CostEntity;
 import dev.nar.projectrackr.entities.CostFactorsEntity;
 import dev.nar.projectrackr.repositories.CostFactorsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class CostFactorsServiceImpl implements CostFactorsService{
 
     private final CostFactorsRepository costFactorsRepository;
 
+    @Autowired
     public CostFactorsServiceImpl(CostFactorsRepository costFactorsRepository) {
         this.costFactorsRepository = costFactorsRepository;
-    }
-
-    @Override
-    public CostFactorsEntity createCostFactors(String title, float poids, List<CostEntity> costs) {
-        CostFactorsEntity costFactorsEntity = new CostFactorsEntity();
-        costFactorsEntity.setTitle(title);
-        costFactorsEntity.setPoids(poids);
-        costFactorsEntity.setCosts(costs);
-        return costFactorsRepository.save(costFactorsEntity) ;
-    }
-
-    @Override
-    public CostFactorsEntity updateCostFactors(CostFactorsEntity costFactorsEntity, String newTitle
-            , float newPoids
-            , List<CostEntity> newCosts) throws RuntimeException {
-
-        Optional<CostFactorsEntity> optionalCostEntity = costFactorsRepository.findById(costFactorsEntity.getId());
-
-        if (optionalCostEntity.isPresent()){
-
-            costFactorsEntity.setTitle(newTitle);
-            costFactorsEntity.setPoids(newPoids);
-            costFactorsEntity.setCosts(newCosts);
-
-
-            return costFactorsRepository.save(costFactorsEntity);
-        }
-        else {
-            throw new RuntimeException("Le facteur de coût est introuvable");
-        }
     }
 
     @Override
@@ -50,10 +24,6 @@ public class CostFactorsServiceImpl implements CostFactorsService{
         return Optional.ofNullable(costFactorsRepository.findById(id).orElseThrow(() -> new RuntimeException("Le facteur de coût est introuvable")));
     }
 
-    @Override
-    public void deleteById(int id) {
-        costFactorsRepository.deleteById(id);
-    }
 
     @Override
     public CostFactorsEntity findByTitle(String title) {
@@ -65,8 +35,5 @@ public class CostFactorsServiceImpl implements CostFactorsService{
         return costFactorsRepository.findByTitleIgnoreCase(title);
     }
 
-    @Override
-    public void deleteAll() {
-        costFactorsRepository.deleteAll();
-    }
+
 }

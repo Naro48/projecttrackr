@@ -11,9 +11,5 @@ public interface CostFactorsRepository extends JpaRepository<CostFactorsEntity,I
 
     public CostFactorsEntity findByTitle(String title );
 
-    public void deleteById(int id );
-
-    public void deleteAll();
-
 
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router';
+import { AppConfig } from '../config';
 
 
 @Component({
@@ -15,8 +16,8 @@ export class LoginComponent {
     constructor(private http: HttpClient,private router: Router){}
 
     onSubmit(){
-      const apiUrl = "https://localhost:8080/"
-      const endpoint = '${apiUrl}/auth/authentication'
+      const Url = AppConfig.apiUrl;
+      const endpoint = '${Url}/auth/authentication';
     
 
       const data = {

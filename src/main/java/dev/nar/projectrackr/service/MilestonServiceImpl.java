@@ -4,15 +4,17 @@ import dev.nar.projectrackr.entities.MilestonEntity;
 import dev.nar.projectrackr.entities.ProjetEntity;
 import dev.nar.projectrackr.exception.MilestoneNotFoundException;
 import dev.nar.projectrackr.repositories.MilestonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.auditing.CurrentDateTimeProvider;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
-
+@Service
 public class MilestonServiceImpl implements MilestonService{
 
     private final MilestonRepository milestonRepository;
-
+    @Autowired
     public MilestonServiceImpl(MilestonRepository milestonRepository) {
         this.milestonRepository = milestonRepository;
     }

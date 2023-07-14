@@ -3,39 +3,35 @@ package dev.nar.projectrackr.entities;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @Entity
 @Table(name="facteur_coût")
-@AllArgsConstructor
-@RequiredArgsConstructor
-@NoArgsConstructor
 @Data
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class CostFactorsEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @NonNull
     @Column(name = "intitulé", nullable = false)
     private String title;
 
-    @Column(nullable = false)
-    private float poids;
+    @NonNull
+    @Column
+    private Double poid;
 
-    @OneToMany(mappedBy = "CostFactor",cascade = CascadeType.ALL)
-    private List<CostEntity> costs;
-
-
-
-
-
-
-
+    public CostFactorsEntity(String title) {
+        this.setTitle(title);
+    }
 }
 

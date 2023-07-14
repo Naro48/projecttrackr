@@ -1,9 +1,11 @@
 package dev.nar.projectrackr.entities;
 
+import dev.nar.projectrackr.TypeCOCOMO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -36,11 +38,24 @@ public class TaskEntity implements Serializable {
 
     private String priority;
 
+
     private String etat;
 
+
+    @Column(nullable = false)
     private String effort;
 
-    private String num_ligne_code;
+    private String tdev;
+
+    private String person_required;
+
+
+    @Column(nullable = false)
+    private Double num_ligne_code; //KLOC
+
+
+
+    private TypeCOCOMO typeCOCOMO ;
 
     @ManyToOne
     private ProjetEntity projet;

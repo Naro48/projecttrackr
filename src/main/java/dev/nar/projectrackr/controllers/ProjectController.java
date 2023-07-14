@@ -2,10 +2,14 @@ package dev.nar.projectrackr.controllers;
 
 import dev.nar.projectrackr.entities.ProjetEntity;
 import dev.nar.projectrackr.service.ProjetServiceImpl;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -20,11 +24,11 @@ public class ProjectController {
 
     @PostMapping("/creation_projet")
     @ResponseStatus(HttpStatus.CREATED)
-    public ProjetEntity createProject(@RequestBody ProjetEntity projet){
-        return projetService.createProject(projet.getTitle(),projet.getDate_debut(),projet.getDate_fin_estime(),projet.getDead_line());
+    public ProjetEntity createProject(@RequestBody ProjectRequest projet){
+        return projetService.createProject(projet.getTitle(),projet.getDate_debut(),projet.getDate_fin_estimee(),projet.getDead_line());
     }
 
-    @GetMapping("/search")
+    @PostMapping("/search")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity<List<ProjetEntity>> searchProjectByTitle(@RequestBody String title){
         List<ProjetEntity> projetEntities = projetService.searchProjectByTitle(title);
@@ -38,14 +42,7 @@ public class ProjectController {
         return new ResponseEntity<>(projet,HttpStatus.OK);
     }
 
-    @GetMapping("/add")
-    public ResponseEntity<ProjetEntity> addProject(@RequestBody ProjetEntity projet){
-        ProjetEntity project = projetService.addProject(projet);
 
-
-        return new ResponseEntity<>(project,HttpStatus.OK);
-
-    }
 
     @DeleteMapping("/delete/all")
     public void deleteAllProjects(){
@@ -71,4 +68,15 @@ public class ProjectController {
         return new ResponseEntity<>(projet,HttpStatus.OK);
     }
 
+    @Data
+    @RequiredArgsConstructor
+    @AllArgsConstructor
+    private static class ProjectRequest {
+        private String title;
+        private Date date_debut;
+        private Date date_fin_estimee;
+        private Date dead_line;
+    }
 }
+
+
