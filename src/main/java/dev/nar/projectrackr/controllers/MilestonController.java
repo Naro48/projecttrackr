@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/milestones")
+@CrossOrigin("*")
 public class MilestonController {
 
     private final MilestonService milestonService;

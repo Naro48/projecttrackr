@@ -2,6 +2,7 @@ package dev.nar.projectrackr.service;
 
 import dev.nar.projectrackr.entities.ProjetEntity;
 import dev.nar.projectrackr.exception.ProjectNotFoundException;
+import dev.nar.projectrackr.repositories.FonctionnaireRepository;
 import dev.nar.projectrackr.repositories.ProjetRepository;
 import dev.nar.projectrackr.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,9 @@ public class ProjetServiceImpl implements ProjetService {
 
     private final TaskRepository taskRepository;
 
+
     @Autowired
-    public ProjetServiceImpl(ProjetRepository projetRepository, TaskRepository taskRepository) {
+    public ProjetServiceImpl(ProjetRepository projetRepository, TaskRepository taskRepository, FonctionnaireRepository fonctionnaireRepository) {
         this.projetRepository = projetRepository;
         this.taskRepository = taskRepository;
     }
@@ -38,6 +40,7 @@ public class ProjetServiceImpl implements ProjetService {
         projet.setDate_debut(date_debut);
         projet.setDate_fin_estime(date_fin_estimee);
         projet.setDead_line(dead_line);
+
 
         return projetRepository.save(projet);
 

@@ -4,6 +4,8 @@ import dev.nar.projectrackr.entities.FonctionnaireEntity;
 import dev.nar.projectrackr.repositories.FonctionnaireRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class FonctionnaireServiceImpl implements FonctionnaireService {
 
@@ -18,4 +20,6 @@ public class FonctionnaireServiceImpl implements FonctionnaireService {
     public FonctionnaireEntity findByEmail(String email){
         return fonctionnaireRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("Fonctionnaire Introuvable"));
     }
+
+
 }

@@ -1,3 +1,3 @@
 export class AppConfig{
-    public static apiUrl = "https://localhost:8080/"
+    public static apiUrl = "http://localhost:8080"
 }

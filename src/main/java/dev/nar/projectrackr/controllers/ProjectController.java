@@ -1,5 +1,6 @@
 package dev.nar.projectrackr.controllers;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.nar.projectrackr.entities.ProjetEntity;
 import dev.nar.projectrackr.service.ProjetServiceImpl;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/projets")
+@CrossOrigin("*")
 public class ProjectController {
 
     private final ProjetServiceImpl projetService;
@@ -24,8 +26,9 @@ public class ProjectController {
 
     @PostMapping("/creation_projet")
     @ResponseStatus(HttpStatus.CREATED)
-    public ProjetEntity createProject(@RequestBody ProjectRequest projet){
-        return projetService.createProject(projet.getTitle(),projet.getDate_debut(),projet.getDate_fin_estimee(),projet.getDead_line());
+    public ResponseEntity<ProjetEntity> createProject(@RequestBody ProjectRequest projet){
+        ProjetEntity projetEntity = projetService.createProject(projet.getTitle(),projet.getDate_debut(),projet.getDate_fin_estimee(),projet.getDead_line());
+        return new ResponseEntity<>(projetEntity,HttpStatus.OK);
     }
 
     @PostMapping("/search")
@@ -76,6 +79,7 @@ public class ProjectController {
         private Date date_debut;
         private Date date_fin_estimee;
         private Date dead_line;
+
     }
 }
 

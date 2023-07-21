@@ -1,6 +1,7 @@
 package dev.nar.projectrackr.auth;
 
 import dev.nar.projectrackr.FonctionnaireRole;
+import dev.nar.projectrackr.ProfilFctn;
 import io.micrometer.observation.Observation;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,6 +26,8 @@ public class RegisterRequest {
 
     private String role;
 
+    private String profil;
+
 
 
     public FonctionnaireRole getRealRole() throws RuntimeException{
@@ -38,6 +41,19 @@ public class RegisterRequest {
             Observation.CheckedCallable<RuntimeException, Throwable> erreur = () -> new RuntimeException("Erreur");
         }
         return null;
+    }
+
+    public ProfilFctn getRealProfile(){
+        if (Objects.equals(this.profil,"Ingénieur")){
+            return ProfilFctn.INGENIEUR;
+        }
+        if (Objects.equals(this.profil,"Téchnicien")){
+            return ProfilFctn.TECHNICIEN;
+        }
+        if (Objects.equals(this.profil,"Administrateur")){
+            return ProfilFctn.ADMINISTRATEUR;
+        }
+        else return null;
     }
 
 

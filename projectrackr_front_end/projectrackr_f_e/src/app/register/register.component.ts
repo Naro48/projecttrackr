@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AppConfig } from '../config';
 
@@ -25,7 +25,7 @@ export class RegisterComponent {
       
       const Url = AppConfig.apiUrl;
 
-      const endpoint = '${Url}/auth/register'
+      const endpoint = `${Url}/auth/register`;
 
 
       const formData = {
@@ -34,9 +34,17 @@ export class RegisterComponent {
         email: this.email,
         password: this.password,
         role: this.role,
+        profil:this.profil
       }
       
-      this.http.post(endpoint,formData).subscribe(
+      const jsonData = JSON.stringify(formData);
+
+      const headers = new HttpHeaders({
+        'Content-Type' : 'application/json'
+      });
+
+
+      this.http.post(endpoint,jsonData,{ headers:headers}).subscribe(
         (response:any) => {
           const registrationToken = response.token;
 

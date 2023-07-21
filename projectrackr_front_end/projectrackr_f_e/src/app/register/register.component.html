@@ -11,10 +11,15 @@
      
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
    <title>Responsive Regisration Form </title>
 </head>
+<header><div class="app-header">
+    <app-header></app-header>
+    </div></header>
 <body>
+    
     <div class="container">
         <header>Registration</header>
 
@@ -26,27 +31,27 @@
                     <div class="fields">
                         <div class="input-field">
                             <label>Nom</label>
-                            <input type="text" placeholder="Enter your last name" required [(ngModel)]="lastname">
+                            <input type="text" placeholder="Enter your last name" required [(ngModel)]="lastname" [ngModelOptions]="{ standalone: true }">
                         </div>
 
                         <div class="input-field">
                             <label>Prenom</label>
-                            <input type="text" placeholder="Enter your first name" required [(ngModel)]="firstname">
+                            <input type="text" placeholder="Enter your first name" required [(ngModel)]="firstname" [ngModelOptions]="{ standalone: true }">
                         </div>
 
                         <div class="input-field">
                             <label>Date of Birth</label>
-                            <input type="date" placeholder="Enter birth date" [(ngModel)]="dateOfBirth">
+                            <input type="date" placeholder="Enter birth date" [(ngModel)]="dateOfBirth" [ngModelOptions]="{ standalone: true }">
                         </div>
 
                         <div class="input-field">
                             <label>Email</label>
-                            <input type="text" placeholder="Enter your email" required [(ngModel)]="email">
+                            <input type="text" placeholder="Enter your email" required [(ngModel)]="email" [ngModelOptions]="{ standalone: true }">
                         </div>
 
                         <div class="input-field">
                             <label>Genre</label>
-                            <select required [(ngModel)]="gender">
+                            <select required [(ngModel)]="gender" [ngModelOptions]="{ standalone: true }">
                                 <option disabled selected>Select gender</option>
                                 <option>Male</option>
                                 <option>Female</option>
@@ -56,7 +61,7 @@
                         
                         <div class="input-field">
                             <label>Profil</label>
-                            <select required [(ngModel)]="profil">
+                            <select required [(ngModel)]="profil" [ngModelOptions]="{ standalone: true }">
                                 <option disabled selected>Selectionne ton Profil</option>
                                 <option>Ingénieur</option>
                                 <option>Téchnicien</option>
@@ -66,16 +71,16 @@
                        
                         <div class="input-field">
                             <label>Role</label>
-                            <select required [(ngModel)]="role">
+                            <select required [(ngModel)]="role" [ngModelOptions]="{ standalone: true }">
                                 <option disabled selected>Selectionne ton Role</option>
-                                <option>Responsable Tâche</option>
-                                <option>Responsable Projet</option>
+                                <option>Responsable tâche</option>
+                                <option>Responsable projet</option>
                             </select>
                         </div>
 
                         <div class="input-field">
                             <label>Password</label>
-                            <input type="password" placeholder="Enter your Password" required [(ngModel)]="password">
+                            <input type="password" placeholder="Enter your Password" required [(ngModel)]="password" [ngModelOptions]="{ standalone: true }">
                         </div>
                     </div>
                 </div>

@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/cost-factors")
+@CrossOrigin("*")
 public class CostFactorsController {
 
     private final CostFactorsService costFactorsService;

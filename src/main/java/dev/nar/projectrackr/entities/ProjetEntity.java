@@ -1,5 +1,6 @@
 package dev.nar.projectrackr.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,12 +35,15 @@ public class ProjetEntity implements Serializable {
     private Date dead_line;
 
     @OneToMany(mappedBy ="projet",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<TaskEntity> tasks;
 
     @ManyToOne
+    @JsonIgnore
     private FonctionnaireEntity respo_projet;
 
     @OneToMany(mappedBy = "projet",cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<MilestonEntity> milestones;
 
 

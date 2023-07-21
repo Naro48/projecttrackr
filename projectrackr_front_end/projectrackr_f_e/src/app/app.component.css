@@ -1,0 +1,18 @@
+/* Réinitialiser les marges et rembourrages par défaut */
+body, div {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  
+  /* Optionnellement, définir une hauteur minimale pour éviter le redimensionnement des éléments */
+  body {
+    min-height: 0;
+  }
+  
+  /* Définir une classe pour le conteneur principal si nécessaire */
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+  
