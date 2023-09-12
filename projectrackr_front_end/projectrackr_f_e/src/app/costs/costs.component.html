@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Login Form with validation Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="costs.component.scss">
+
+
+</head>
+
+<div class="container">
+  <div class="header">
+    <app-header-dash></app-header-dash>
+  </div>
+  <div class="main-container">
+    <div class="side-nav">
+      <app-side-nav></app-side-nav>
+    </div>
+
+    <div>
+        <div class="titre"></div>
+    </div>
+    <div class="container_ok">
+      <header>Paramétres de coûts</header></div>
+      <body>
+        
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Determine les Evaluations des facteurs de coûts</span>
+  
+                    <div class="fields">
+                       
+  
+  
+                  <div class="input-field">
+                      <label>RELY (Required Software Reliability)</label>
+                      <select required [(ngModel)]="ratings[0]" [ngModelOptions]="{standalone: true}">
+                          <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+      
+                          <option>Very High</option>
+                          <option>High</option>
+                          <option>Nominal</option>
+                          <option>Low</option>
+                          <option>Very Low</option>
+  
+                          
+                      </select>
+                  </div>
+
+                  <div class="input-field">
+                    <label>DATA (Data Base Size)</label>
+                    <select required [(ngModel)]="ratings[1]" [ngModelOptions]="{standalone: true}">
+                        <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+    
+                        <option>Very High</option>
+                        <option>High</option>
+                        <option>Nominal</option>
+                        <option>Low</option>
+
+                        
+                    </select>
+                </div>
+
+                <div class="input-field">
+                  <label>CPLX (Product Complexity)</label>
+                  <select required [(ngModel)]="ratings[2]" [ngModelOptions]="{standalone: true}">
+                      <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+  
+                      <option>Extra High</option>
+                      <option>Very High</option>
+                      <option>High</option>
+                      <option>Nominal</option>
+                      <option>Low</option>
+                      <option>Very Low</option>
+
+                      
+                  </select>
+              </div>
+
+              <div class="input-field">
+                <label>TIME (Execution Time Contraint)</label>
+                <select required [(ngModel)]="ratings[3]" [ngModelOptions]="{standalone: true}">
+                    <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+
+                    <option>Extra High</option>
+                    <option>Very High</option>
+                    <option>High</option>
+                    <option>Nominal</option>
+
+                    
+                </select>
+            </div>
+
+            <div class="input-field">
+              <label>STOR (Main storage Contraint)</label>
+              <select required [(ngModel)]="ratings[4]" [ngModelOptions]="{standalone: true}">
+                  <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+
+                  <option>Extra High</option>
+                  <option>Very High</option>
+                  <option>High</option>
+                  <option>Nominal</option>
+
+                  
+              </select>
+          </div>
+          <div class="input-field">
+            <label>VIRT (Virtual machine Volatility)</label>
+            <select required [(ngModel)]="ratings[5]" [ngModelOptions]="{standalone: true}">
+                <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+
+                <option>Very High</option>
+                <option>High</option>
+                <option>Nominal</option>
+                <option>Low</option>
+
+                
+            </select>
+        </div>
+        <div class="input-field">
+          <label>TURN (Computer Turnaround Time)</label>
+          <select required [(ngModel)]="ratings[6]" [ngModelOptions]="{standalone: true}">
+              <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+
+              <option>Very High</option>
+              <option>High</option>
+              <option>Nominal</option>
+              <option>Low</option>
+
+              
+          </select>
+      </div>
+      <div class="input-field">
+        <label>ACAP (Analyst Capability)</label>
+        <select required [(ngModel)]="ratings[7]" [ngModelOptions]="{standalone: true}">
+            <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+
+            <option>Very High</option>
+            <option>High</option>
+            <option>Nominal</option>
+            <option>Low</option>
+            <option>Very Low</option>
+
+            
+        </select>
+    </div>
+    <div class="input-field">
+      <label>AEXP (Application Experience)</label>
+      <select required [(ngModel)]="ratings[9]" [ngModelOptions]="{standalone: true}">
+          <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+  
+          <option>Very High</option>
+          <option>High</option>
+          <option>Nominal</option>
+          <option>Low</option>
+          <option>Very Low</option>
+  
+          
+      </select>
+  </div>
+  
+    <div class="input-field">
+      <label>PCAP (Programmer Capability)</label>
+      <select required [(ngModel)]="ratings[8]" [ngModelOptions]="{standalone: true}">
+          <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+
+          <option>Very High</option>
+          <option>High</option>
+          <option>Nominal</option>
+          <option>Low</option>
+          <option>Very Low</option>
+
+          
+      </select>
+  </div>
+<div class="input-field">
+  <label>VEXP (Virtual Machine Experience)</label>
+  <select required [(ngModel)]="ratings[10]" [ngModelOptions]="{standalone: true}">
+      <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+
+      <option>High</option>
+      <option>Nominal</option>
+      <option>Low</option>
+      <option>Very Low</option>
+
+      
+  </select>
+</div>
+<div class="input-field">
+  <label>LEXP (Programming Language Experience)</label>
+  <select required [(ngModel)]="ratings[11]" [ngModelOptions]="{standalone: true}">
+      <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+
+      <option>High</option>
+      <option>Nominal</option>
+      <option>Low</option>
+      <option>Very Low</option>
+
+      
+  </select>
+</div>
+<div class="input-field">
+  <label>MODP (Modern Programming Practices)</label>
+  <select required [(ngModel)]="ratings[12]" [ngModelOptions]="{standalone: true}">
+      <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+
+      <option>Very High</option>
+      <option>High</option>
+      <option>Nominal</option>
+      <option>Low</option>
+      <option>Very Low</option>
+
+      
+  </select>
+</div>
+<div class="input-field">
+  <label>TOOL (Use of Software Tools)</label>
+  <select required [(ngModel)]="ratings[13]" [ngModelOptions]="{standalone: true}">
+      <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+
+      <option>Very High</option>
+      <option>High</option>
+      <option>Nominal</option>
+      <option>Low</option>
+      <option>Very Low</option>
+
+      
+  </select>
+</div>
+<div class="input-field">
+  <label>SCED (Required Development Schedule)</label>
+  <select required [(ngModel)]="ratings[14]" [ngModelOptions]="{standalone: true}">
+      <option disabled selected>Selectionne l'evaluation de ce facteur</option>
+
+      <option>Very High</option>
+      <option>High</option>
+      <option>Nominal</option>
+      <option>Low</option>
+      <option>Very Low</option>
+
+      
+  </select>
+</div>
+
+  
+                     
+                  
+                  
+
+  
+                        
+  
+                      
+                        
+                       
+                
+                       
+                     
+  
+                        
+                    </div>
+                </div>
+  
+                
+  
+            
+                <div class="details family">
+                    <span class="title"></span>
+  
+                    
+  
+                    <div class="buttons">
+                       
+                        
+                        <button class="sumbit" (click)="onSubmit()">
+                            <span class="btnText">Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div> 
+            </div>
+        </form>
+    
+      
+    </body>

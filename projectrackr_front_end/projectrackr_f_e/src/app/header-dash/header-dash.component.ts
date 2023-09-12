@@ -11,11 +11,14 @@ import { Router } from '@angular/router';
 export class HeaderDashComponent {
     
     imagePath : string;
+
+    imagePatho : string; 
     token : TokenStorageService;
   
     constructor(token : TokenStorageService){
       this.imagePath = "../assets/logo_2.png";
       this.token = token;
+      this.imagePatho = "../assets/titre_46809134.png"
 
     }
     ngOnInit(): void{

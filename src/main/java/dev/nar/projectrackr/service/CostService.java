@@ -12,7 +12,7 @@ public interface CostService  {
 
     public String chooseRatingOfEffortFactor();
 
-    public CostEntity updateCost(CostEntity cost, List<String> ratings,Double poid );
+    public CostEntity updateCost(TaskEntity task);
     
     public CostEntity findById(Integer id);
 

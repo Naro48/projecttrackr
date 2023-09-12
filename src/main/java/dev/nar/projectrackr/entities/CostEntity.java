@@ -15,18 +15,13 @@ import java.util.List;
 @Data
 public class CostEntity implements Serializable {
 
-    @EmbeddedId
-    private CostKey id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     @ManyToOne
-    @MapsId("tasksId")
     @JoinColumn(name = "id_tâche")
     private TaskEntity task;
-
-    @ManyToOne
-    @MapsId("FactorId")
-    @JoinColumn(name = "id_facteur")
-    private CostFactorsEntity CostFactor;
 
     @Column(name = "ratinqs")
     private List<String> rating;

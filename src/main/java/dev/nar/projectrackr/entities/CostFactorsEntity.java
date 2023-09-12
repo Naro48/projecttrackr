@@ -14,7 +14,6 @@ import java.util.Optional;
 @Entity
 @Table(name="facteur_coût")
 @Data
-@RequiredArgsConstructor
 @AllArgsConstructor
 public class CostFactorsEntity implements Serializable {
 
@@ -26,7 +25,7 @@ public class CostFactorsEntity implements Serializable {
     @Column(name = "intitulé", nullable = false)
     private String title;
 
-    @NonNull
+
     @Column
     private Double poid;
 

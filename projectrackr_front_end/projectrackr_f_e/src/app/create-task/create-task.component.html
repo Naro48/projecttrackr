@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Login Form with validation Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="create-task.component.scss">
+
+
+</head>
+
+<div class="container">
+  <div class="header">
+    <app-header-dash></app-header-dash>
+  </div>
+  <div class="main-container">
+    <div class="side-nav">
+      <app-side-nav></app-side-nav>
+    </div>
+
+    <div>
+        <div class="titre"></div>
+    </div>
+    <div class="container_ok">
+      <header *ngIf="!isEditMode">Créez Une tâche</header>
+      <header *ngIf="isEditMode">Modifier la tâche</header>
+      
+      
+      <body>
+        
+      <form action="#">
+          <div class="form first">
+              <div class="details personal">
+                  <span class="title">Details de la tâche</span>
+
+                  <div class="fields">
+                      <div class="input-field">
+                          <label>Titre de la tâche</label>
+                          <input type="text" placeholder="Entrez le titre de la tâche" required [(ngModel)]="title" [(ngModel)]="taskToUpdate.title" [ngModelOptions]="{ standalone: true }">
+                      </div>
+
+                      <div class="input-field">
+                        <label>Date de Debut</label>
+                        <input type="date" placeholder="Entrez la date de debut du projet" [(ngModel)]="date_debut"  [ngModelOptions]="{ standalone: true }">
+                    </div>
+
+                      <div class="input-field">
+                          <label>Date de Fin (Estimée)</label>
+                          <input type="date" placeholder="Estimez la date de fin du projet" [(ngModel)]="date_fin_estimee" [ngModelOptions]="{ standalone: true }">
+                      </div>
+
+                      <div class="input-field">
+                        <label>Dead Line</label>
+                        <input type="date" placeholder="Fixez votre Dead line du Projet" [(ngModel)]="dead_line" [ngModelOptions]="{ standalone: true }">
+                    </div>
+
+                    <div class="input-field">
+                      <label>Email du Responsable de la tâche</label>
+                      <input type="text" placeholder="Entrez l'email du Responsable du Projet" required [(ngModel)]="respo_email" [(ngModel)]="respoUser.email" [ngModelOptions]="{ standalone: true }">
+                  </div>
+
+                  <div class="input-field">
+                    <label>Description</label>
+                    <textarea type="text" placeholder="Decrivez la tâche" required [(ngModel)]="description" [(ngModel)]="taskToUpdate.description" [ngModelOptions]="{ standalone: true }"></textarea>
+                </div>
+
+                <div class="input-field">
+                    <label>Priorité</label>
+                    <select required [(ngModel)]="priority" [(ngModel)]="taskToUpdate.priority" [ngModelOptions]="{standalone: true}">
+                        <option disabled selected>Selectionne la priorité de la tâche</option>
+    
+                        <option>Haute</option>
+                        <option>Moyenne</option>
+                        <option>Faible</option>
+                        <option>Optionnelle</option>
+
+                        
+                    </select>
+                </div>
+
+                <div class="input-field">
+                    <label>Nombre de lignes de code (KLOC)</label>
+                    <input type="number" placeholder="Estimez le nombre de ligne de code en KLOC" required [(ngModel)]="num_ligne_code" [(ngModel)]="taskToUpdate.num_ligne_code" [ngModelOptions]="{ standalone: true }">
+                </div>
+                
+
+                <div>
+                    <h4>KLOC : kilo Lines of Code</h4>
+                </div>
+
+                      
+
+                    
+                      
+                     
+              
+                     
+                   
+
+                      
+                  </div>
+              </div>
+
+              
+
+          
+              <div class="details family">
+                  <span class="title"></span>
+
+                  
+
+                  <div class="buttons">
+                     
+                      
+                      <button class="sumbit" (click)="onSubmit()">
+                          <span class="btnText">Submit</span>
+                          <i class="uil uil-navigator"></i>
+                      </button>
+                  </div>
+              </div> 
+          </div>
+      </form>
+  
+    
+  </body>
+
+
+</div></div>

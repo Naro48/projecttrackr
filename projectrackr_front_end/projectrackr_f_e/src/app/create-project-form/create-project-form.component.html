@@ -22,7 +22,8 @@
         <div class="titre"></div>
     </div>
     <div class="container_ok">
-      <header>Creation de Projet</header>
+      <header *ngIf="!isEditMode">Creation de Projet</header>
+      <header *ngIf="isEditMode">Modification de Projet</header>
       
       
       <body>
@@ -33,30 +34,57 @@
                   <span class="title">Details du Projet</span>
 
                   <div class="fields">
-                      <div class="input-field">
+                      <div class="input-field" *ngIf="!isEditMode">
                           <label>Titre du Projet</label>
-                          <input type="text" placeholder="Entrez le titre du Projet" required [(ngModel)]="title" [ngModelOptions]="{ standalone: true }">
+                          <input type="text" placeholder="Entrez le titre du Projet" required [(ngModel)]="title"  [ngModelOptions]="{ standalone: true }">
                       </div>
 
-                      <div class="input-field">
+                      <div class="input-field" *ngIf="isEditMode">
+                        <label>Titre du Projet</label>
+                        <input type="text" placeholder="Entrez le titre du Projet" required [(ngModel)]="title" [(ngModel)]="projectToUpdate.title" [ngModelOptions]="{ standalone: true }">
+                    </div>
+
+                    
+
+                      <div class="input-field" *ngIf="!isEditMode">
                         <label>Date de Debut</label>
-                        <input type="date" placeholder="Entrez la date de debut du projet" [(ngModel)]="date_debut" [ngModelOptions]="{ standalone: true }">
+                        <input type="date" placeholder="Entrez la date de debut du projet" [(ngModel)]="date_debut"  [ngModelOptions]="{ standalone: true }">
                     </div>
 
-                      <div class="input-field">
+                    <div class="input-field" *ngIf="isEditMode">
+                      <label>Date de Debut</label>
+                      <input type="date" placeholder="Entrez la date de debut du projet" [(ngModel)]="date_debut" [(ngModel)]="debut_date_update" [ngModelOptions]="{ standalone: true }">
+                  </div>
+
+                      <div class="input-field" *ngIf="!isEditMode">
                           <label>Date de Fin (Estimée)</label>
-                          <input type="date" placeholder="Estimez la date de fin du projet" [(ngModel)]="date_fin_estimee" [ngModelOptions]="{ standalone: true }">
+                          <input type="date" placeholder="Estimez la date de fin du projet" [(ngModel)]="date_fin_estimee"  [(ngModel)]="final_date_update" [ngModelOptions]="{ standalone: true }">
                       </div>
 
-                      <div class="input-field">
-                        <label>Dead Line</label>
-                        <input type="date" placeholder="Fixez votre Dead line du Projet" [(ngModel)]="dead_line" [ngModelOptions]="{ standalone: true }">
+                      <div class="input-field" *ngIf="isEditMode">
+                        <label>Date de Fin (Estimée)</label>
+                        <input type="date" placeholder="Estimez la date de fin du projet" [(ngModel)]="date_fin_estimee"  [(ngModel)]="final_date_update" [ngModelOptions]="{ standalone: true }">
                     </div>
 
-                    <div class="input-field">
-                      <label>Email du Responsable</label>
-                      <input type="text" placeholder="Entrez l'email du Responsable du Projet" required [(ngModel)]="respo_email" [ngModelOptions]="{ standalone: true }">
+                      <div class="input-field" *ngIf="isEditMode">
+                        <label>Dead Line</label>
+                        <input type="date" placeholder="Fixez votre Dead line du Projet" [(ngModel)]="dead_line" [(ngModel)]="dead_line_update" [ngModelOptions]="{ standalone: true }">
+                    </div>
+
+                    <div class="input-field" *ngIf="!isEditMode">
+                      <label>Dead Line</label>
+                      <input type="date" placeholder="Fixez votre Dead line du Projet" [(ngModel)]="dead_line" [(ngModel)]="dead_line_update" [ngModelOptions]="{ standalone: true }">
                   </div>
+
+                    <div class="input-field" *ngIf="!isEditMode">
+                      <label>Email du Responsable</label>
+                      <input type="text" placeholder="Entrez l'email du Responsable du Projet" required [(ngModel)]="respo_email"  [ngModelOptions]="{ standalone: true }">
+                  </div>
+
+                  <div class="input-field" *ngIf="isEditMode">
+                    <label>Email du Responsable</label>
+                    <input type="text" placeholder="Entrez l'email du Responsable du Projet" required [(ngModel)]="respo_email" [(ngModel)]="emailProjectToUpdate" [ngModelOptions]="{ standalone: true }">
+                </div>
 
                       
 

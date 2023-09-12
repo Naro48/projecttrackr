@@ -14,12 +14,12 @@ export class TaskService {
   constructor(private http: HttpClient) { }
 
   // Méthode pour créer une tâche
-  createTask(task: TaskEntity): Observable<TaskEntity> {
+  createTask(task: any): Observable<TaskEntity> {
     return this.http.post<TaskEntity>(`${this.apiUrl}/create_task`, task);
   }
 
   // Méthode pour créer une sous-tâche
-  createSubTask(taskId: number, subtask: TaskEntity): Observable<TaskEntity> {
+  createSubTask(taskId: number, subtask: any): Observable<TaskEntity> {
     return this.http.post<TaskEntity>(`${this.apiUrl}/${taskId}/subtasks`, subtask);
   }
 
@@ -34,8 +34,8 @@ export class TaskService {
   }
 
   // Méthode pour récupérer toutes les tâches
-  getAllTasks(): Observable<TaskEntity[]> {
-    return this.http.get<TaskEntity[]>(`${this.apiUrl}/all`);
+  getAllTasks(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/all`);
   }
 
   getNumberOfTasks(): Observable<number> {
@@ -47,12 +47,12 @@ export class TaskService {
 
 
   // Méthode pour récupérer toutes les tâches d'un projet spécifique
-  getAllTasksByProjectId(projectId: number): Observable<TaskEntity[]> {
-    return this.http.get<TaskEntity[]>(`${this.apiUrl}/project/${projectId}`);
+  getAllTasksByProjectId(projectId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/project/${projectId}`);
   }
 
   // Méthode pour mettre à jour une tâche
-  updateTask(taskId: number, updatedTask: TaskEntity): Observable<TaskEntity> {
+  updateTask(taskId: number, updatedTask: any): Observable<TaskEntity> {
     return this.http.put<TaskEntity>(`${this.apiUrl}/${taskId}`, updatedTask);
   }
 

@@ -1,5 +1,6 @@
 package dev.nar.projectrackr.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,6 +30,7 @@ public class MilestonEntity implements Serializable {
     private String compte_rendu;
 
     @ManyToOne
+    @JsonIgnore
     private ProjetEntity projet;
 
 

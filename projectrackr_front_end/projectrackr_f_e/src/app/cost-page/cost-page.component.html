@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Login Form with validation Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="cost-page.component.scss">
+
+</head>
+
+<div class="container">
+  <div class="header">
+    <app-header-dash></app-header-dash>
+  </div>
+  <div class="main-container">
+    <div class="side-nav">
+      <app-side-nav></app-side-nav>
+    </div>
+
+    <div class="project-list-container">
+      <div class="title">Projets En cours</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Titre</th>
+            <th>Date de début</th>
+            <th>Date de fin (estimée)</th>
+            <th>Deadline</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let project of projects">
+            <td>{{ project.title }}</td>
+            <td>{{ project.date_debut }}</td>
+            <td>{{ project.date_fin_estime }}</td>
+            <td>{{ project.dead_line }}</td>
+            <td>{{ project.tdev}}</td>
+            <td>{{ project.pm}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

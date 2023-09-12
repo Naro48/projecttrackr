@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { faAdd } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
+import { faAdd, faSearch, faTasks } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-create-project',
   templateUrl: './create-project.component.html',
@@ -8,9 +9,13 @@ import { faAdd } from '@fortawesome/free-solid-svg-icons';
 export class CreateProjectComponent {
   faAdd = faAdd; 
 
-  constructor(){}
+  faSearch = faSearch
 
-  onSubmit(){
-    
+  faTasks = faTasks;
+
+  constructor(private router : Router){}
+
+  OnSubmit(){
+    this.router.navigate(['/creation']);
   }
 }

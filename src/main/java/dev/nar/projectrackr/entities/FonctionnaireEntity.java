@@ -1,5 +1,6 @@
 package dev.nar.projectrackr.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.nar.projectrackr.FonctionnaireRole;
 import dev.nar.projectrackr.ProfilFctn;
 import jakarta.persistence.*;
@@ -48,6 +49,7 @@ public class FonctionnaireEntity implements UserDetails {
     private ProfilFctn profil;
 
     @Enumerated(EnumType.STRING)
+    @JsonIgnore
     private FonctionnaireRole role;
 
     @Column(name = "mot_de_passe")

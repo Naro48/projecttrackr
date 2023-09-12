@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProjectService } from './service/project.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'projectrackr_f_e';
+
+  constructor(private projectService : ProjectService){}
+
+  
 }

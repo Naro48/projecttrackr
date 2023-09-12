@@ -53,8 +53,8 @@ export class ProjectService {
         
       }
     
-      updateProject(projectData: any): Observable<ProjetEntity> {
-        const endpoint = `${this.apiUrl}/projets/update/${projectData.id}`;
+      updateProject(projectData: any, projectId : number): Observable<ProjetEntity> {
+        const endpoint = `${this.apiUrl}/projets/update/${projectId}`;
         return this.http.post<ProjetEntity>(endpoint, projectData);
       }
     }

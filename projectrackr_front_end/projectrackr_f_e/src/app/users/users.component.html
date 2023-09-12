@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Login Form with validation Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="users.component.scss">
+
+</head>
+
+<div class="container">
+  <div class="header">
+    <app-header-dash></app-header-dash>
+  </div>
+  <div class="main-container">
+    <div class="side-nav">
+      <app-side-nav></app-side-nav>
+    </div>
+
+    <div class="project-list-container">
+        <div class="title">Liste des Fonctionnaires</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Prenom</th>
+              <th>Email</th>
+              <th>Profil</th>
+              <th>Role</th>
+              <th>Liste des projets</th>
+              <th>Liste des tâches</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of usersTo">
+              
+              <td>{{ user.nom }}</td>
+              <td>{{ user.prenom }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.profil }}</td>
+              <td>{{ user.role }}</td>
+              <td>
+                <ul>
+                  <li *ngFor="let projet of user.projects">{{projet.title}}</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li *ngFor="let task of user.tasks">{{task.title}}</li>
+                </ul>
+              </td>
+              
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      

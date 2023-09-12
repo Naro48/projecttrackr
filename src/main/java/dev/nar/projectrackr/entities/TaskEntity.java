@@ -1,5 +1,6 @@
 package dev.nar.projectrackr.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.nar.projectrackr.TypeCOCOMO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -38,11 +39,8 @@ public class TaskEntity implements Serializable {
 
     private String priority;
 
-
     private String etat;
 
-
-    @Column(nullable = false)
     private String effort;
 
     private String tdev;
@@ -58,17 +56,23 @@ public class TaskEntity implements Serializable {
     private TypeCOCOMO typeCOCOMO ;
 
     @ManyToOne
+    @JsonIgnore
     private ProjetEntity projet;
 
     @ManyToOne
+    @JsonIgnore
     private FonctionnaireEntity respo_tâche;
 
     @ManyToOne
     @JoinColumn(name = "tâche_parente",nullable = true)
+    @JsonIgnore
     private TaskEntity father_task;
 
     @OneToMany(mappedBy = "task",cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<CostEntity> costs;
+
+    private List<String> ratings ;
 
 
 

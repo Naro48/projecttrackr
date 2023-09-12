@@ -5,18 +5,31 @@
         <tr>
           <th>Titre</th>
           <th>Date de début</th>
-          <th class="ok">Date de fin (estimée)</th>
+          <th>Date de fin (estimée)</th>
           <th>Deadline</th>
+          <th></th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let project of projects">
           <td>{{ project.title }}</td>
           <td>{{ project.date_debut }}</td>
-          <td>{{ project.date_fin_estimee }}</td>
+          <td>{{ project.date_fin_estime }}</td>
           <td>{{ project.dead_line }}</td>
+          <td><button class="button-37" [routerLink]="['/tasks',project.id]">
+            <fa-icon [icon]="faTasks" class="icon"></fa-icon>
+            <span>     Gérer les tâches</span>
+        </button></td>
+        <td><button>
+          <fa-icon [icon]="faEdit" class="icon" (click) = "OnSubmit(project.id)"></fa-icon>
+        </button></td>
+        <td><button>
+          <fa-icon [icon]="faDelete" class="icon" (click) = "Delete(project.id)"></fa-icon>
+        </button></td>
 
-        </tr>
+      </tr>
       </tbody>
     </table>
   </div>

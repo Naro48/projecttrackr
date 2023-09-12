@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Login Form with validation Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="task.component.scss">
+
+</head>
+
+<div class="container">
+  <div class="header">
+    <app-header-dash></app-header-dash>
+  </div>
+  <div class="main-container">
+    <div class="side-nav">
+      <app-side-nav></app-side-nav>
+    </div>
+
+    <div class="project-list-container">
+        <div class="title">Tâches En Cours pour le projet {{nameOfProject}}</div>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th>Titre</th>
+              <th>Date de début</th>
+              <th>Date de fin (estimée)</th>
+              <th>Deadline</th>
+              <th>Temps de developpement (Mois)</th>
+              <th>Effort (Homme-Mois)</th>
+              <th>Nombre de Ligne de code (KLOC)</th>
+              <th>Priority</th>
+              <th> Type de projet (COCOMO)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let task of tasks">
+              <td><button class="button-37" (click)="OnSubmitSub(task.id)">
+                <fa-icon [icon]="faTasks" class="icon"></fa-icon>
+                <span>Gerer les sous-tâche</span>
+            </button></td>
+            <td><button><fa-icon [icon]="faEdit" class="icon" (click) = "OnSubmitUpdate(task.id)"></fa-icon>
+            </button></td>
+            <td><button><fa-icon [icon]="faDelete" class="icon" (click) = "Delete(task.id)"></fa-icon>
+            </button></td>
+
+            <td>{{ task.title }}</td>
+              <td>{{ task.date_debut }}</td>
+              <td>{{ task.date_fin_estime }}</td>
+              <td>{{ task.dead_line }}</td>
+              <td>{{ task.tdev }}</td>
+              <td>{{ task.effort}}</td>
+              <td>{{ task.num_ligne_code }}</td>
+              <td>{{ task.priority }}</td>
+              <td>{{ task.typeCOCOMO}}</td>
+              
+            </tr>
+          </tbody>
+        </table>
+        <button class="button-30" role="button" (click)="OnSubmit()">Ajouter une tâche</button>
+      </div>
+      

@@ -12,6 +12,9 @@ import {
 import { TaskEntity } from 'src/entities/task-entity';
 import { TaskService } from '../service/task.service';
 import { ProjectService } from '../service/project.service';
+import { HttpClient } from '@angular/common/http';
+import { AppConfig } from '../config';
+import { error } from 'highcharts';
 
 @Component({
   selector: 'app-top-widgets',
@@ -24,6 +27,9 @@ export class TopWidgetsComponent implements OnInit {
 
   numberOfProjects: number = 0; 
 
+  numberOfUsers : number = 0; 
+
+  totalPm : string = "";
 
 
   faLocation = faLocation;
@@ -34,7 +40,7 @@ export class TopWidgetsComponent implements OnInit {
   faCheckSquare = faCheckSquare;
   faUsers = faUsers;
 
-  constructor(private taskService :TaskService,private projectService: ProjectService) { }
+  constructor(private taskService :TaskService,private projectService: ProjectService, private http : HttpClient) { }
 
   ngOnInit() {
     this.taskService.getNumberOfTasks().subscribe(
@@ -52,6 +58,23 @@ export class TopWidgetsComponent implements OnInit {
       },
       (error) => {
         console.error("Erreur lors de la récupération du nombre de projets", error);
+      }
+    );
+
+    this.http.get<number>(`${AppConfig.apiUrl}/projets/all_users`).subscribe(
+      (numberOfUsers : number) => {
+        this.numberOfUsers = numberOfUsers;
+      },
+      (error) => {
+        console.error("Erreur de la recuperation du nombre des fonctionnaires")
+      }
+    );
+    this.http.get<number>(`${AppConfig.apiUrl}/projets/pm/all`).subscribe(
+      (TotalPm:number) => {
+        this.totalPm = TotalPm.toFixed(2);
+      },
+      (error) => {
+        console.error("Erreur de recuperation de l'effort Total");
       }
     );
 

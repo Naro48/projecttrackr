@@ -25,7 +25,18 @@ import * as highcharts from 'highcharts';
 import { TopTasksComponent } from './top-tasks/top-tasks.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
 import { CreateProjectFormComponent } from './create-project-form/create-project-form.component';
+import { CreateTaskComponent } from './create-task/create-task.component';
+import { CostsComponent } from './costs/costs.component';
+import { TaskComponent } from './task/task.component';
+import { UsersComponent } from './users/users.component';
+import { CostPageComponent } from './cost-page/cost-page.component';
+import { ProjectChartComponent } from './project-chart/project-chart.component';
 
+import { ChartOptions, ChartType, ChartDataset} from 'chart.js';
+import { NgChartsModule } from 'ng2-charts';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { PieTaskComponent } from './pie-task/pie-task.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
 
 
 @NgModule({
@@ -42,7 +53,16 @@ import { CreateProjectFormComponent } from './create-project-form/create-project
     ProjectListComponent,
     TopTasksComponent,
     CreateProjectComponent,
-    CreateProjectFormComponent
+    CreateProjectFormComponent,
+    CreateTaskComponent,
+    CostsComponent,
+    TaskComponent,
+    UsersComponent,
+    CostPageComponent,
+    ProjectChartComponent,
+    PieChartComponent,
+    PieTaskComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,
@@ -50,9 +70,11 @@ import { CreateProjectFormComponent } from './create-project-form/create-project
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    NgChartsModule
   ],
-  providers: [ {provide: HTTP_INTERCEPTORS , useClass :AuthInterceptor, multi : true}],
+  providers: [ {provide: HTTP_INTERCEPTORS , useClass :AuthInterceptor, multi : true}
+  , CreateProjectFormComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
